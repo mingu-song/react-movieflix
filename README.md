@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React MovieFlix
+Learning React and ES6 by building a Movie Discovery App. (normadcoders)
 
-## Available Scripts
+## Screens
 
-In the project directory, you can run:
+- [ ] Home
+- [ ] TV Shows
+- [ ] Search
+- [ ] Detail
 
-### `npm start`
+## 프로젝트에 필요한 컴포넌트
+* 프로젝트 설치
+    * `npx create-react-app react-movie-flix`
+* npm 보다 가벼운 yarn 사용
+    * `brew install yarn`
+* 필요없는 소스 정리 후 prop-types 추가
+    * `yarn add prop-types`
+* Route를 위한 컴포넌트 추가
+    * `yarn add react-router-dom`    
+* 어플리케이션 실행
+    * `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 3.2 CSS in React part Three
+* `yarn add styled-components`
+* html 의 속성을 styled.태그 로 따로 설정하여 css를 localization 처리할 수 있다.
+* 실제 브라우저에서 각 태그의 class 이름은 랜덤하게 생성되므로 중복되지 않는다.
+    ```js
+    import React from "react";
+    import { Link } from "react-router-dom";
+    import styled from "styled-components";
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    const Header = styled.header``;
 
-### `npm test`
+    const List = styled.ul`
+        display: flex;
+    `;
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    const Item = styled.li``;
 
-### `npm run build`
+    const SLink = styled(Link)``;
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    export default () => (
+        <Header>
+            <List>
+                <Item>
+                    <SLink to="/">Movies</SLink>
+                </Item>
+                <Item>
+                    <SLink to="/tv">TV</SLink>
+                </Item>
+                <Item>
+                    <SLink to="/search">Search</SLink>
+                </Item>
+            </List>
+        </Header>
+    )
+    ```
+## 3.3 GlobalStyles and Header
+* `yarn add styled-reset`
+* styled components 를 이용하여 global css 가 적용되도록 하는 컴포넌트
+* 아래 처럼 reset 을 이용해 작성하고 App.js에 추가하여 사용
+    ```js
+    import { createGlobalStyle } from "styled-components";
+    import reset from "styled-reset";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    const globalStyles = createGlobalStyle`
+        ${reset};
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+        *{
+            box-sizing:border-box;
+        }
+        body{
+            font-family:--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size:14px;
+            background-color:rgba(20, 20, 20, 1);
+        }
+    `;
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    export default globalStyles;
+    ```
+## 4.0 Introduction to The Movie DB API
