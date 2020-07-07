@@ -124,9 +124,22 @@ Learning React and ES6 by building a Movie Discovery App. (normadcoders)
     }
     ```
 
-## 6.0 Presenter Structure
+## 7.0 Deploy
 
-
+* gh-pages
+    * `yarn add gh-pages`
+    * package.json > scripts 추가 
+        * "deploy": "gh-pages -d build"
+        * "predeploy": "yarn run build"
+    * packages.json > homepage 추가
+        * "homepage": "https://jaden-song.github.io/react-movieflix/"
+    * `yarn deploy`
+    * https://jaden-song.github.io/react-movieflix/ 접속
+    * `**리프레쉬 또는 url 에 /tv, /search 로 접근할 수 없음 (Router.js 에 HashRouter 를 사용하면 가능)**`
+* netlify
+    * 프론트앤드로만 작동함
+    * git push 때마다 등록된 build command 를 실행하고 특정폴더를 publish 함
+    * https://vibrant-minsky-cda904.netlify.app 접속
 
 ## Code Challenges
 
