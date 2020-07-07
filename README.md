@@ -139,7 +139,9 @@ Learning React and ES6 by building a Movie Discovery App. (normadcoders)
 * netlify
     * 프론트앤드로만 작동함
     * git push 때마다 등록된 build command 를 실행하고 특정폴더를 publish 함
-    * https://vibrant-minsky-cda904.netlify.app 접속
+    * 결국 `HashRouter` 로 변경은 필요함
+    * package.jsn > homepage 변경
+        * https://vibrant-minsky-cda904.netlify.app
 
 ## Code Challenges
 

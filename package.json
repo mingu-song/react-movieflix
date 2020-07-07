@@ -25,7 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://jaden-song.github.io/react-movieflix/",
+  "homepage": "https://vibrant-minsky-cda904.netlify.app",
   "browserslist": {
     "production": [
       ">0.2%",
